@@ -8,8 +8,8 @@ resource "helm_release" "metallb" {
   chart            = "metallb"
   namespace        = "metallb"
   version          = var.METALLB_VERSION
-  wait             = "true"
-  timeout          = "1200"
+  wait             = true
+  timeout          = 100
   create_namespace = true
   values = [
   <<-EOF
