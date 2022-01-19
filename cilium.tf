@@ -3,8 +3,8 @@ resource "helm_release" "cilium" {
   repository = "https://helm.cilium.io/"
   chart      = "cilium"
   namespace  = "kube-system"
-  wait       = "true"
-  timeout    = "1200"
+  wait       = true
+  timeout    = 100
   version    = var.CILIUM_VERSION
   values = [
     <<-EOF
