@@ -18,7 +18,7 @@ resource "kubernetes_namespace" "istio-operator" {
     annotations = {
       name                             = "istio-operator"
       "meta.helm.sh/release-name"      = "istio-operator"
-      "meta.helm.sh/release-namespace" = "istio-operator"
+      "meta.helm.sh/release-namespace" = "istio-system"
     }
     labels = {
       "app.kubernetes.io/managed-by" = "Helm"
