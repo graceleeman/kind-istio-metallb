@@ -3,9 +3,6 @@ resource "null_resource" "download_istio" {
     ISTIO_VERSION = var.ISTIO_VERSION
   }
   provisioner "local-exec" {
-    command = "curl -L https://istio.io/downloadIstio | ISTIO_VERSION=${self.triggers.ISTIO_VERSION} sh -"
-  }
-  provisioner "local-exec" {
     when    = destroy
     command = "rm -r ${path.root}/istio-${self.triggers.ISTIO_VERSION}"
   }
