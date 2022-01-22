@@ -31,7 +31,7 @@ resource "helm_release" "istio-operator" {
   name            = "istio-operator"
   repository      = "${path.root}/istio-${var.ISTIO_VERSION}/manifests/charts"
   chart           = "istio-operator"
-  namespace       = kubernetes_namespace.istio-operator.metadata[0].name
+  namespace       = "istio-system"
   cleanup_on_fail = true
 }
 resource "kubernetes_namespace" "istio-system" {
